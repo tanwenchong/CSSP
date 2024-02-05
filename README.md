@@ -13,7 +13,7 @@ Contrastive Sequence-Structure Pretraining for antibody.
 
 CSSP *(Contrastive Sequence-Structure Pretraining for antibody)* is a neural network trained on variety of (sequence, structure) pairs of antibodies. With more close relationship with antibody functions and characteristics, the structure modality of antibody would assist the feature extraction of antibody sequences, especially in the function related predictions. Moreover, with more precisely predicted antibody structures, the aligned features of sequence and structure modalities may have more interesting applications, such as antibody sequence and structure retrieval, CDR3 region residue completion given antibody structure (antibody design), antibody structure similarity calculation with only sequence information, etc.
 
-<img src="media/all.png" alt="overview"  />
+<img src="media/all.png" alt="overview" />
 
 # Introduction
 
@@ -42,7 +42,7 @@ Chain Embedding   :          <H>    <H>    <L>     <L>
 
 Besides, we propose *CDR focused span mask residue modeling* as pretraining task for better representation in CDR regions, especially in CDR-H3 regions.
 
-<img src="media/cdr.png" alt="MLM" style="zoom:50%;" />
+<img src="media/cdr.png" alt="MLM" style="zoom:50%;" width="500px" />
 
 We also use the pretraining task to finetune ESM2-3B model on antibody sequences. As ESM2 uses RoPE as positional embedding, we adjust the input pattern as follows.
 
@@ -60,7 +60,7 @@ Chain Embedding   :          <H>     <L>     <L>
 
 For structure modality, we adopt Graph Transformer as model architecture. We use Igfold to predict antibody structure as training data, and use Foldseek to convert antibody structure into 3di sequence as training labels.
 
-<img src="media/3di.png" alt="3di_predict" style="zoom: 33%;" />
+<img src="media/3di.png" alt="3di_predict" style="zoom: 33%;" width="700px"  />
 
 The features used in Graph Transformer refer to [PIFOLD](https://github.com/A4Bio/PiFold).
 
@@ -102,7 +102,7 @@ We add an `[CLS]` token into sequence as a learnable parameter, representing the
 
 When calculating edge features, we calculate the edge features of `[CLS]` token with other tokens as the sum of the outedge features of each token, as it indicates the importance of the node. (The inedge is selected with KNN nodes, so the numbers of inedges of each nodes are the same. If one node is more frequently the outedge of other nodes, this node is more important in the graph. Besides, if one node is more important in the graph, it is more affected by the update of the graph.)
 
-<img src="media/edge.png" alt="edgefeature" style="zoom:50%;" />
+<img src="media/edge.png" alt="edgefeature" style="zoom:50%;" width="500px" />
 
 We also use *CDR focused span mask 3di modeling* as pretraining task. It is noted that span mask here is necessary to avoid data leakage.
 
@@ -114,21 +114,41 @@ We use t-SNE to do feature visualization.
 
 For sequence modality, we extract the features of test set sequences to visualize. We use different colors to indicate different species of each antibody sequence.
 
+<details><summary><b>Visualization result</b></summary>
+
 Heavy chain
-<img src="media/tsne_heavy.png" alt="seq_h" style="zoom: 50%;" />
+
+<img src="media/tsne_heavy.png" alt="seq_h" style="zoom: 50%;" width="500px" />
+
 Light chain
-<img src="media/tsne_light.png" alt="seq_l" style="zoom:50%;" />
+
+<img src="media/tsne_light.png" alt="seq_l" style="zoom:50%;" width="500px" />
+
 Paired chain
-<img src="media/tsne_paired.png" alt="seq_p" style="zoom:50%;" />
+
+<img src="media/tsne_paired.png" alt="seq_p" style="zoom:50%;" width="500px" />
+
+</details>
+
+
 
 For structure modality, we also extract the features of test set structures to visualize.
 
+<details><summary><b>Visualization result</b></summary>
+
 Heavy chain
-<img src="media/tsne_heavy_stru.png" alt="stru_h" style="zoom:50%;" />
+
+<img src="media/tsne_heavy_stru.png" alt="stru_h" style="zoom:50%;" width="500px" />
+
 Light chain
-<img src="media/tsne_light_stru.png" alt="stru_l" style="zoom:50%;" />
+
+<img src="media/tsne_light_stru.png" alt="stru_l" style="zoom:50%;" width="500px" />
+
 Paired chain
-<img src="media/tsne_paired_stru.png" alt="stru_p" style="zoom:50%;" />
+
+<img src="media/tsne_paired_stru.png" alt="stru_p" style="zoom:50%;" width="500px" />
+
+</details>
 
 
 
@@ -303,7 +323,7 @@ We give our thresholds as reference.
 
 The distributions of rmsds of each chain types are shown below.
 
-![rmsd](media\rmsd.png)
+![rmsd](media/rmsd.png)
 
 Finally, we convert the resulting csv files into json files for training.
 
