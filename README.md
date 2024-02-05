@@ -92,7 +92,10 @@ $$
 where $l$ is the layer index. The layer number $L$ to add bias term is set as a hyper parameter, i.e.
 
 $$
-bias_{i,j,l}=\begin{cases}bias_{i,j},l\leq L,\\ 0,l>L.\end{cases}
+bias_{i,j,l}=\begin{cases}
+bias_{i,j} & l\leq L,\\ 
+0 & l>L.
+\end{cases}
 $$
 
 We add an `[CLS]` token into sequence as a learnable parameter, representing the feature of the whole sequence.
