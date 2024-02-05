@@ -1,0 +1,13 @@
+test_file: [
+  #'../sequence_pretrain/data/infer/paratope/light.json'
+  '../sequence_pretrain/data/infer/AbPROP/TMID/paired.json'
+  #'antibody_pretrain/sequence_pretrain/data/infer/bcell/heavy.json'
+  ]
+ckpt_path: 'antibody_pretrain/sequence_pretrain_ft/output/Pretrain/checkpoint_00.pth'
+
+if_pool: 1
+how_pool: 'mean'  # mean, max, cls
+save_name: 'antibody_pretrain/downstream/AbPROP/data/processed/TMID/embedding_mean_paired_seq_ft00.npy' #'antibody_pretrain/downstream/AbPROP/data/processed/ALBASE/embedding_max_light_seq06.npy' #'antibody_pretrain/downstream/ATUE/data/processed/paratope/embedding_paratope_light_seq18.npy'
+
+max_sl: 256
+batch_size: 64

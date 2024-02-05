@@ -1,0 +1,27 @@
+train_file: [
+  'antibody_pretrain/structure_pretrain/struct_code4/data/test/heavy0.json',
+  'antibody_pretrain/structure_pretrain/struct_code4/data/test/light0.json',
+  'antibody_pretrain/structure_pretrain/struct_code4/data/test/paired0.json',
+  ]
+
+pdb_root: 'antibody_data/structure_data/' #'/code/test/struct_pretrain/struct_code/data/debug_pdbs/' #'antibody_data/structure_data/heavy/split_predict/0/'
+topk: 20
+num_rbf_node: 8
+num_rbf_edge: 16
+
+bert_config_seq: 'configs/config_bert_seq.json'
+bert_config_stru: 'configs/config_bert_stru.json'
+
+ckpt_bert_seq: 'antibody_pretrain/sequence_pretrain/output/Pretrain_large/checkpoint_05.pth'
+ckpt_bert_stru: 'antibody_pretrain/structure_pretrain/struct_code4/output/Pretrain/checkpoint_09.pth'
+
+max_sl: 256
+batch_size: 20
+bias_layer_num: 12
+mlm_probability_seq: 0.2
+
+embed_dim: 1024
+
+optimizer: {opt: adamW, lr: 1e-4, weight_decay: 0.01}
+schedular: {sched: cosine, lr: 1e-4, epochs: 25, min_lr: 1e-5, 
+            decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 3, cooldown_epochs: 0}

@@ -1,0 +1,24 @@
+test_file: [
+  '/code/test/sequence_pretrain/data/infer/paratope/light.json'
+  ]
+
+bert_config: 'configs/config_bert_large.json'
+ckpt_path: '/code/test/multi_pretrain/output/Pretrain/checkpoint_00.pth'
+if_pool: 0
+how_pool: 'mean'
+save_name: 'embedding_light_multi_test.npy'
+
+max_sl: 256
+batch_size: 64
+
+embed_dim: 1024
+
+bert_config_seq: 'configs/config_bert_seq.json'
+bert_config_stru: 'configs/config_bert_stru.json'
+
+## stru model
+topk: 20
+num_rbf_node: 8
+num_rbf_edge: 16
+bias_layer_num: 12
+

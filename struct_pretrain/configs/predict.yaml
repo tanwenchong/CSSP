@@ -1,0 +1,37 @@
+test_file: [
+  'data/test/heavy0.json',
+  'data/test/heavy1.json',
+  'data/test/heavy2.json',
+  'data/test/heavy3.json',
+  'data/test/heavy4.json',
+  
+  'data/test/light0.json',
+  'data/test/light1.json',
+  'data/test/light2.json',
+  'data/test/light3.json',
+  'data/test/light4.json',
+  
+  'data/test/paired0.json',
+  'data/test/paired1.json',
+  'data/test/paired2.json',
+  'data/test/paired3.json',
+  'data/test/paired4.json'
+  ]
+
+pdb_root: 'antibody_data/structure_data/' #'/code/test/struct_pretrain/struct_code/data/debug_pdbs/' #'antibody_data/structure_data/heavy/split_predict/0/'
+topk: 20
+num_rbf_node: 8
+num_rbf_edge: 16
+
+bert_config: 'configs/config_bert.json'
+ckpt_path: 'antibody_pretrain/structure_pretrain/struct_pretrain/output/Pretrain/checkpoint_04.pth' #'antibody_pretrain/structure_pretrain/struct_code4/output/Pretrain/checkpoint_03.pth'
+
+max_sl: 256
+batch_size: 1
+bias_layer_num: 12
+mlm_probability: 0.05
+
+optimizer: {opt: adamW, lr: 1e-4, weight_decay: 0.01}
+schedular: {sched: cosine, lr: 1e-4, epochs: 25, min_lr: 1e-5, 
+            decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 3, cooldown_epochs: 0}
+

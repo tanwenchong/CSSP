@@ -1,0 +1,35 @@
+train_file: [
+  'data/train/heavy0.json',
+  'data/train/heavy1.json',
+  'data/train/heavy2.json',
+  'data/train/heavy3.json',
+  'data/train/heavy4.json',
+  
+  'data/train/light0.json',
+  'data/train/light1.json',
+  'data/train/light2.json',
+  'data/train/light3.json',
+  'data/train/light4.json',
+  
+  'data/train/paired0.json',
+  'data/train/paired1.json',
+  'data/train/paired2.json',
+  'data/train/paired3.json',
+  'data/train/paired4.json'
+  ]
+
+pdb_root: 'antibody_data/structure_data/' #'/code/test/struct_pretrain/struct_code/data/debug_pdbs/' #'antibody_data/structure_data/heavy/split_predict/0/'
+topk: 20
+num_rbf_node: 8
+num_rbf_edge: 16
+
+bert_config: 'configs/config_bert.json'
+
+max_sl: 256
+batch_size: 64
+bias_layer_num: 12
+mlm_probability: 0.2
+
+optimizer: {opt: adamW, lr: 1e-4, weight_decay: 0.01}
+schedular: {sched: cosine, lr: 1e-4, epochs: 25, min_lr: 1e-5, 
+            decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 3, cooldown_epochs: 0}

@@ -1,0 +1,15 @@
+test_file: [
+  #'data/infer/paratope/light.json'
+  #'data/infer/AbPROP/ALBASE/light.json'
+  'antibody_pretrain/sequence_pretrain/dedup/paired.json'
+  ]
+
+bert_config: 'configs/config_bert_large.json'
+ckpt_path: 'antibody_pretrain/sequence_pretrain/output/Pretrain_large/checkpoint_18.pth'
+
+if_pool: 1
+how_pool: 'mean'  # mean, max, cls
+save_name: 'antibody_pretrain/sequence_pretrain/dedup/embedding_dedup_paired_seq18_mean.npy'
+
+max_sl: 256
+batch_size: 64

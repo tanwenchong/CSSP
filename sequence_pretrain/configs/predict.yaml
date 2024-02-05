@@ -1,0 +1,15 @@
+test_file: [
+  'antibody_data/processed_dataset/sequence/jsons/test/light.json',
+  #'antibody_data/processed_dataset/sequence/jsons/test/paired.json',
+  #'antibody_data/processed_dataset/sequence/jsons/test/heavy.json',
+  #'data/debug/heavy.json',
+  #'data/debug/light.json',
+  #'data/debug/paired.json',
+  ]
+
+bert_config: 'configs/config_bert_large.json'
+ckpt_path: 'antibody_pretrain/sequence_pretrain/output/Pretrain_large/checkpoint_03.pth' #'/code/test/sequence_pretrain/output/Pretrain/checkpoint_00.pth' #'/code/test/sequence_pretrain/output/Pretrain/checkpoint_16.pth'
+
+max_sl: 256
+batch_size: 64
+mlm_probability: 0.05

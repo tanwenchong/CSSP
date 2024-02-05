@@ -1,0 +1,19 @@
+test_file: [
+  '/code/test/sequence_pretrain/data/infer/AbPROP/TMID/paired.json'
+  ]
+
+pdb_root: 'antibody_pretrain/downstream/AbPROP/data/predicted_pdb/TMID/' #'antibody_pretrain/downstream/ATUE/data/predicted_pdb/paratope/'
+topk: 20
+num_rbf_node: 8
+num_rbf_edge: 16
+
+if_pool: 1
+how_pool: 'mean'
+save_name: 'antibody_pretrain/downstream/AbPROP/data/processed/TMID/embedding_TMID_stru_nobn24_mean_paired.npy' #'antibody_pretrain/structure_pretrain/struct_pretrain/dedup/embedding_dedup_paired_stru_nobn24_mean.npy' #'antibody_pretrain/downstream/AbPROP/data/processed/TMID/embedding_TMID_stru_nobn24_mean_heavy.npy' #'antibody_pretrain/downstream/ATUE/data/processed/paratope/embedding_paratope_stru_nobn24_mean_light.npy'
+
+bert_config: 'configs/config_bert.json'
+ckpt_path: 'antibody_pretrain/structure_pretrain/struct_pretrain/output/Pretrain/checkpoint_24.pth'
+
+max_sl: 256
+batch_size: 64
+bias_layer_num: 12

@@ -1,0 +1,18 @@
+train_file: [
+  'antibody_data/processed_dataset/sequence/jsons/train/heavy.json',
+  
+  'antibody_data/processed_dataset/sequence/jsons/train/light.json',
+  
+  'antibody_data/processed_dataset/sequence/jsons/train/paired.json',
+  ]
+
+#bert_config: 'configs/config_bert_3B.json'
+
+max_sl: 256
+batch_size: 8
+num_workers: 10
+mlm_probability: 0.15
+
+optimizer: {opt: adamW, lr: 1e-4, weight_decay: 0.01}
+schedular: {sched: cosine, lr: 1e-4, epochs: 20, min_lr: 1e-5, 
+            decay_rate: 0.1, warmup_lr: 1e-5, warmup_epochs: 20, cooldown_epochs: 0}
